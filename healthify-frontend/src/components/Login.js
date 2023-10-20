@@ -29,13 +29,11 @@ const Login = () => {
         ApiService.login(login)
             .then(resp => {
                 let user = resp.data;
+                console.log(user)
                 setUser(user);
                 localStorage.setItem('user', JSON.stringify(user));
                 setError(null);
-                if (user.did) // then it's a doctor
-                    history.push("/doctor");
-                else  
-                    history.push("/patient");
+                history.push("/patient");
             }).catch(() => {
                 setUser(null);
                 setError('Invalid Login!');

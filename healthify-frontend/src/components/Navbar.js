@@ -17,8 +17,6 @@ const Navbar = () => {
         if (user==null)
             return '/login';
         else {
-            if (user.did)
-                return '/doctor';
             return '/patient';
         }
     }
@@ -27,14 +25,14 @@ const Navbar = () => {
         <div>
             <nav className={`navbar fixed-top navbar-expand-md navbar-dark ${location.pathname==='/'? 'bg-transparent': 'bg-dark'}`} aria-label="Navbar">
                 <div className="container">
-                    <Link to="/" className="navbar-brand" ><span><i className="fa fa-h-square me-2" aria-hidden="true"/>Healthify</span></Link>
+                    <Link to="/" className="navbar-brand" ><span><img src='images\logoMain.png' alt="" className="main-logo" style = {{width:"50px" , height:"50px"}}/>YourFitnessMate</span></Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarsExample04">
                         <ul className="navbar-nav me-auto mb-2 mb-md-0">
                             <Link to={dashboardHandler} className="nav-link px-2 text-white"><li>Dashboard</li></Link>
-                            <Link to="/covid-tracker" className="nav-link px-2 text-white"><li>Covid-Tracker</li></Link>
+                            
                             {/* <Link to="/blogs" className="nav-link px-2 text-white"><li>Blogs</li></Link> */}
                             <Link to="/about" className="nav-link px-2 text-white"><li>About</li></Link>
                         </ul>

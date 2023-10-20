@@ -32,20 +32,20 @@ const PatientRegistration = () => {
             <div className="form-group">
                 <div className="row">
                     <div className="col position-relative">
-                        <input type="text" className={classNames("form-control",{"is-invalid": errors.pid})} name="pid" placeholder="Patient ID" 
-                        {...register('pid', { 
-                            required: "Please enter a patient ID.",
+                        <input type="text" className={classNames("form-control",{"is-invalid": errors.name})} name="name1" placeholder="First Name" 
+                        {...register('name1', { 
+                            required: "Please enter your First Name.",
                             pattern: {
-                                value: /^\d{1,5}$/, 
-                                message: "Should be 1 to 5 digits only."
+                                value: /^(?![\. ])[a-zA-Z\. ]+(?<! )$/,
+                                message: "Invalid name."
                             }
                         })}/> 
-                        {errors.pid && <div className="invalid-tooltip">{errors.pid.message}</div>}
+                        {errors.name1 && <div className="invalid-tooltip">{errors.name1.message}</div>}
                     </div>
                     <div className="col position-relative">
-                        <input type="text" className={classNames("form-control",{"is-invalid": errors.name})} name="name" placeholder="Name" 
+                        <input type="text" className={classNames("form-control",{"is-invalid": errors.name})} name="name" placeholder="Last Name" 
                         {...register('name', { 
-                            required: "Please enter your full name.",
+                            required: "Please enter your Last name.",
                             minLength: {
                                 value: 4,
                                 message: "Should be at least 4 characters"
@@ -115,21 +115,6 @@ const PatientRegistration = () => {
                         )}
                     />
                     {errors.mobile && <div className="invalid-tooltip">{errors.mobile.message}</div>}
-                </div>
-            </div>
-            <div className="form-group">
-                <div className="col position-relative">
-                    <input type="text" className={classNames("form-control",{"is-invalid": errors.aadhar})} name="aadhar" placeholder="Aadhar" 
-                        {...register('aadhar', { 
-                                required: "Please enter your aadhar.",
-                                pattern: {
-                                    value: /^\d{12}$/,
-                                    message: "Invalid aadhar number."
-                                }
-                            }
-                        )}
-                    />
-                    {errors.aadhar && <div className="invalid-tooltip">{errors.aadhar.message}</div>}
                 </div>
             </div>
             <div className="form-group">

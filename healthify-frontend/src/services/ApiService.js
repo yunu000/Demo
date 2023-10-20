@@ -15,8 +15,14 @@ const LOGIN_API_URL = `${BASE_URL}/login`;
 const CONSULTATION_FORM_API_URL = `${BASE_URL}/consultations/form`;
 const PATIENT_REGISTRATION_API_URL = `${BASE_URL}/register/patient`;
 const DOCTOR_REGISTRATION_API_URL = `${BASE_URL}/register/doctor`;
+const UPDATE_REWARD_POINT_API_URL = `${BASE_URL}/updateReward`;
 
 class ApiService { 
+
+    updateReward(data){
+        return axios.post(UPDATE_REWARD_POINT_API_URL,data);
+    }
+
     covidTracker() {
         return axios.get(COVID_TRACKER_API_URL);
     }
